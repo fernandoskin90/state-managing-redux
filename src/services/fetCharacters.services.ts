@@ -2,8 +2,11 @@ import { BASE_URL } from '@/constants'
 import { ResponseFetch } from '@/models'
 import axios, { AxiosResponse } from 'axios'
 
-export const getCharacters = async (): Promise<
-  AxiosResponse<ResponseFetch>
-> => {
+type Query = Record<string, string>
+
+export const getCharacters = async (
+  query?: Query
+): Promise<AxiosResponse<ResponseFetch>> => {
+  console.log({ query })
   return await axios.get<ResponseFetch>(`${BASE_URL}/character`)
 }

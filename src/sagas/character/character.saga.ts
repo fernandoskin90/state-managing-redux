@@ -3,7 +3,10 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 
 export function* getCharacter() {
   try {
-    const { data } = yield call(getCharacters)
+    const { data } = yield call(getCharacters, {
+      arg1: 'search',
+      arg2: 'search2',
+    })
     yield put({ type: 'Fetch characters', data })
   } catch (error) {
     yield put({ type: 'ERROR', error })
