@@ -1,5 +1,5 @@
 import { BASE_URL } from '@/constants'
-import { ResponseFetch } from '@/models'
+import { ResponseFetch } from '@/types'
 import axios, { AxiosResponse } from 'axios'
 
 type Query = Record<string, string>
