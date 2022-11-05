@@ -1,15 +1,8 @@
 import { combineReducers } from 'redux'
-
-const test = (state = {}, action: any) => {
-  switch (action.type) {
-    case 'Fetch characters':
-      return { ...state, data: action.data }
-
-    default:
-      return state
-  }
-}
+import { characterReducer } from './reducers'
 
 export const rootReducer = combineReducers({
-  test,
+  characters: characterReducer,
 })
+
+export type RootState = ReturnType<typeof rootReducer>

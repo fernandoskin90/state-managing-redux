@@ -1,17 +1,18 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
+import { useCharacters } from '@/hooks'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/redux'
 
 function App() {
-  const dispatch = useDispatch()
-  const { data } = useSelector((state: any) => state.test)
-  useEffect(() => {
-    dispatch({ type: 'CHARACTER_SUCCESS' })
-  }, [])
+  const { characters, error, loading, info } = useSelector(
+    (state: RootState) => state.characters
+  )
+  useCharacters()
+
+  console.log({ characters, error, loading, info })
   return (
     <div className='App'>
       <h1>React State Managing with Redux</h1>
-      {JSON.stringify(data, null, 2)}
     </div>
   )
 }

@@ -7,6 +7,5 @@ type Query = Record<string, string>
 export const getCharacters = async (
   query?: Query
 ): Promise<AxiosResponse<ResponseFetch>> => {
-  console.log({ query })
   return await axios.get<ResponseFetch>(`${BASE_URL}/character`)
 }
