@@ -1,8 +1,17 @@
+import { CardCharacter } from '@/Components'
+import { HomeSection } from './styles/home.styles'
+
 const Home = () => {
   return (
-    <div>
-      <div>Home page</div>
-    </div>
+    <HomeSection>
+      <CardCharacter />
+      <CardCharacter />
+      <CardCharacter />
+      <CardCharacter />
+      <CardCharacter />
+      <CardCharacter />
+      <CardCharacter />
+    </HomeSection>
   )
 }
 

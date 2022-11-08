@@ -21,12 +21,10 @@ function App() {
       <Container>
         <Suspense fallback={<div>Loading...</div>}>
           <NavBar />
-          <section>
-            <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='/character/:id' element={<CharacterPage />} />
-            </Routes>
-          </section>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/character/:id' element={<CharacterPage />} />
+          </Routes>
         </Suspense>
       </Container>
     </Router>
