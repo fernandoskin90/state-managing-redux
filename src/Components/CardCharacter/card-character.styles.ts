@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const Card = styled.article`
+export const Card = styled(Link)`
   width: 600px;
   height: 220px;
   display: flex;
@@ -8,8 +9,15 @@ export const Card = styled.article`
   background: rgb(60, 62, 68);
   border-radius: 0.5rem;
   margin: 0.75rem;
+  text-decoration: none;
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
     rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  span {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 500;
+  }
 `
 
 export const ImageWrapper = styled.div`
@@ -50,6 +58,21 @@ export const Title = styled.h2`
   font-size: 1.5rem;
 `
 
+export const StatusCharacter = styled.span`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  text-transform: capitalize;
+`
+
+export const StatusIcon = styled.span`
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(85, 204, 68);
+  border-radius: 50%;
+`
+
 export const LocationSection = styled.section`
   flex: 1 1 0%;
   display: flex;
@@ -58,10 +81,26 @@ export const LocationSection = styled.section`
   justify-content: center;
 `
 
+export const LocationKnown = styled.span`
+  color: rgb(158, 158, 158);
+`
+
+export const LocationName = styled.span`
+  color: rgb(245, 245, 245);
+`
+
 export const GenderSection = styled.section`
   flex: 1 1 0%;
   display: flex;
   -webkit-box-pack: end;
   justify-content: flex-end;
   flex-direction: column;
+`
+
+export const GenderTitle = styled.span`
+  color: rgb(158, 158, 158);
+`
+
+export const Gender = styled.span`
+  color: rgb(245, 245, 245);
 `

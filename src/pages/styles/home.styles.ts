@@ -6,7 +6,8 @@ export const HomeSection = styled.section`
   background-color: #0d1f2dff;
   display: grid;
   place-items: center;
+  overflow-y: auto;
   color: white;
-  /* gap: 15px; */
+  gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
 `

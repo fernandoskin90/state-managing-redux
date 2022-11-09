@@ -1,38 +1,49 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Character } from '@/types'
+import { FC } from 'react'
 import {
   Card,
   CharacterInfo,
+  Gender,
   GenderSection,
+  GenderTitle,
   Image,
   ImageWrapper,
+  LocationKnown,
+  LocationName,
   LocationSection,
+  StatusCharacter,
+  StatusIcon,
   Title,
   TitleSection,
 } from './card-character.styles'
 
-export const CardCharacter = () => {
+interface CardCharacterProps {
+  character: Character
+}
+
+export const CardCharacter: FC<CardCharacterProps> = ({ character }) => {
+  const { gender, image, name, species, status, origin, id } = character
   return (
-    <Card>
+    <Card to={`/character/${id}`}>
       <ImageWrapper>
-        <Image
-          src='https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-          alt='Rick Sanchez'
-        />
+        <Image src={image} alt={name} />
       </ImageWrapper>
       <CharacterInfo>
         <TitleSection>
-          <Title>Rick Sanchez</Title>
-          <span>
-            <span>"Alive" - "Human"</span>
-          </span>
+          <Title>{name}</Title>
+          <StatusCharacter>
+            <StatusIcon></StatusIcon>
+            {`"${status}" - "${species}"`}
+          </StatusCharacter>
         </TitleSection>
         <LocationSection>
-          <span>Last Known location:</span>
-          <span>Citadel of Ricks</span>
+          <LocationKnown>Last Known location:</LocationKnown>
+          <LocationName>{origin.name}</LocationName>
         </LocationSection>
         <GenderSection>
-          <span>Gender:</span>
-          <span>Male</span>
+          <GenderTitle>Gender:</GenderTitle>
+          <Gender>{gender}</Gender>
         </GenderSection>
       </CharacterInfo>
     </Card>
