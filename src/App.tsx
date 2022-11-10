@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { NavBar } from '@/Components'
+import { InputSearch, NavBar } from '@/Components'
 import { Container } from './app.styles'
 
 const HomePage = lazy(async () => await import('./pages/Home'))
@@ -12,6 +12,7 @@ function App() {
       <Container>
         <Suspense fallback={<div>Loading...</div>}>
           <NavBar />
+          <InputSearch />
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/character/:id' element={<CharacterPage />} />

@@ -22,6 +22,11 @@ export const characterReducer = (
         ...state,
         loading: LoadingStatus.LOADING,
       }
+    case CharacterFetch.FETCH_CHARACTER_BY_NAME_REQUEST:
+      return {
+        ...state,
+        loading: LoadingStatus.LOADING,
+      }
     case CharacterFetch.FETCH_CHARACTER_SUCCESS:
       return {
         ...state,
@@ -29,8 +34,20 @@ export const characterReducer = (
         info: action.payload.info,
         characters: action.payload.results,
       }
-
+    case CharacterFetch.FETCH_CHARACTER_BY_NAME_SUCCESS:
+      return {
+        ...state,
+        loading: LoadingStatus.SUCCEEDED,
+        info: action.payload.info,
+        characters: action.payload.results,
+      }
     case CharacterFetch.FETCH_CHARACTER_FAILURE:
+      return {
+        ...state,
+        loading: LoadingStatus.FAIL,
+        error: action.payload.error,
+      }
+    case CharacterFetch.FETCH_CHARACTER_BY_NAME_FAILURE:
       return {
         ...state,
         loading: LoadingStatus.FAIL,

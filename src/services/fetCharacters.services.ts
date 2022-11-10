@@ -1,11 +1,12 @@
 import { BASE_URL } from '@/constants'
 import { ResponseFetch } from '@/types'
 import axios, { AxiosResponse } from 'axios'
-
-type Query = Record<string, string>
-
 export const getCharacters = async (
-  query?: Query
+  searcQuery?: string
 ): Promise<AxiosResponse<ResponseFetch>> => {
-  return await axios.get<ResponseFetch>(`${BASE_URL}/character`)
+  const url = searcQuery
+    ? `${BASE_URL}/character/?name=${searcQuery.toLowerCase()}`
+    : `${BASE_URL}/character`
+
+  return await axios.get<ResponseFetch>(url)
 }

@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects'
-import { whatcherCharacter } from './character'
+import { whatcherCharacter, whatcherCharacterByName } from './character'
 
 export function* rootSaga() {
-  yield all([whatcherCharacter()])
+  yield all([whatcherCharacter(), whatcherCharacterByName()])
 }

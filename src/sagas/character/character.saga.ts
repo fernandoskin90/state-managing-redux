@@ -1,7 +1,7 @@
 import { fetchCharactersFailure, fetchCharactersSuccess } from '@/redux'
 import { getCharacters } from '@/services'
 import { CharacterFetch } from '@/types'
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 
 export function* getCharacter() {
   try {
@@ -10,9 +10,8 @@ export function* getCharacter() {
   } catch (error) {
     yield put(fetchCharactersFailure('Faild to Fetch'))
   }
-  // yield put({ type: 'Fetch characters', message: 'hola' })
 }
 
 export function* whatcherCharacter() {
-  yield takeEvery(CharacterFetch.FETCH_CHARACTER_REQUEST, getCharacter)
+  yield takeLatest(CharacterFetch.FETCH_CHARACTER_REQUEST, getCharacter)
 }
