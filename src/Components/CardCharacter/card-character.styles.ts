@@ -1,5 +1,19 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Status } from '@/types'
+
+const colorStatus = (statusCharacter: Status) => {
+  const vv: Record<Status, string> = {
+    Alive: '#55CC44',
+    Dead: 'red',
+    unknown: 'yellow',
+  }
+  return vv[statusCharacter]
+}
+
+interface PropsStatus {
+  status: Status
+}
 
 export const Card = styled(Link)`
   width: 600px;
@@ -65,11 +79,11 @@ export const StatusCharacter = styled.span`
   text-transform: capitalize;
 `
 
-export const StatusIcon = styled.span`
+export const StatusIcon = styled.span<PropsStatus>`
   height: 0.5rem;
   width: 0.5rem;
   margin-right: 0.375rem;
-  background: rgb(85, 204, 68);
+  background: ${(props) => colorStatus(props.status)};
   border-radius: 50%;
 `
 
