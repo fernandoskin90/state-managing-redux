@@ -1,21 +1,32 @@
 import { CardCharacter } from '@/Components'
-import { useCharacters } from '@/hooks'
-import { RootState } from '@/redux'
-import { useSelector } from 'react-redux'
-import { HomeSection } from './styles/home.styles'
+import { useCharacters, useIntersectionObserver } from '@/hooks'
+import { fetchCharacters, RootState } from '@/redux'
+import { CharacterInitialState } from '@/types'
+import { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { ElementObserver, HomeSection } from './styles/home.styles'
 
 const Home = () => {
-  const { characters, error, loading, info } = useSelector(
+  const ref = useRef<HTMLDivElement | null>(null)
+  const entry = useIntersectionObserver(ref, {})
+  const isVisible = !!entry?.isIntersecting
+  const dispatch = useDispatch()
+  const { characters, info }: CharacterInitialState = useSelector(
     (state: RootState) => state.characters
   )
   useCharacters()
 
-  console.log({ characters, error, loading, info })
+  useEffect(() => {
+    if (isVisible && info.next) {
+      dispatch(fetchCharacters(info.next))
+    }
+  }, [isVisible, info.next])
   return (
     <HomeSection>
       {characters.map((character) => (
         <CardCharacter key={character.id} character={character} />
       ))}
+      <ElementObserver ref={ref} />
     </HomeSection>
   )
 }

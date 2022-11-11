@@ -10,4 +10,10 @@ export const HomeSection = styled.section`
   color: white;
   gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  position: relative;
+`
+
+export const ElementObserver = styled.div`
+  width: 100%;
+  background-color: #0d1f2dff;
 `

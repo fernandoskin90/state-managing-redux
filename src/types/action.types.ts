@@ -13,6 +13,7 @@ export enum CharacterFetch {
 
 export interface FetchCharacterRequest {
   type: typeof CharacterFetch.FETCH_CHARACTER_REQUEST
+  urlRequest?: string
 }
 export interface FetchCharacterSuccess {
   type: typeof CharacterFetch.FETCH_CHARACTER_SUCCESS

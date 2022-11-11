@@ -8,8 +8,9 @@ import {
   ResponseFetch,
 } from '@/types'
 
-export const fetchCharacters = (): FetchCharacterRequest => ({
+export const fetchCharacters = (url?: string): FetchCharacterRequest => ({
   type: CharacterFetch.FETCH_CHARACTER_REQUEST,
+  urlRequest: url,
 })
 
 export const fetchCharacterByName = (

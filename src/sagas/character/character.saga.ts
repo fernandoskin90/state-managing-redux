@@ -3,9 +3,9 @@ import { getCharacters } from '@/services'
 import { CharacterFetch } from '@/types'
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-export function* getCharacter() {
+export function* getCharacter(action: any) {
   try {
-    const { data } = yield call(getCharacters)
+    const { data } = yield call(getCharacters, '', action.urlRequest)
     yield put(fetchCharactersSuccess(data))
   } catch (error) {
     yield put(fetchCharactersFailure('Faild to Fetch'))

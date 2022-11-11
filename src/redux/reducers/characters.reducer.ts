@@ -8,7 +8,12 @@ import {
 const initialState: CharacterInitialState = {
   error: null,
   loading: LoadingStatus.IDLE,
-  info: {},
+  info: {
+    next: '',
+    count: 0,
+    prev: null,
+    pages: 0,
+  },
   characters: [],
 }
 
@@ -32,7 +37,8 @@ export const characterReducer = (
         ...state,
         loading: LoadingStatus.SUCCEEDED,
         info: action.payload.info,
-        characters: action.payload.results,
+        // characters: state.characters.concat(action.payload.results),
+        characters: [...state.characters, ...action.payload.results],
       }
     case CharacterFetch.FETCH_CHARACTER_BY_NAME_SUCCESS:
       return {
