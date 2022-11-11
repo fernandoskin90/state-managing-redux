@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { Status } from '@/types'
 
 const colorStatus = (statusCharacter: Status) => {
-  const vv: Record<Status, string> = {
+  const status: Record<Status, string> = {
     Alive: '#55CC44',
     Dead: 'red',
     unknown: 'yellow',
   }
-  return vv[statusCharacter]
+  return status[statusCharacter]
 }
 
 interface PropsStatus {
