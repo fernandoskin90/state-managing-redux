@@ -41,7 +41,7 @@ enum Species {
   Human = 'Human',
 }
 
-enum Status {
+export enum Status {
   Alive = 'Alive',
   Dead = 'Dead',
   Unknown = 'unknown',

@@ -33,7 +33,7 @@ export const CardCharacter: FC<CardCharacterProps> = ({ character }) => {
         <TitleSection>
           <Title>{name}</Title>
           <StatusCharacter>
-            <StatusIcon></StatusIcon>
+            <StatusIcon status={status}></StatusIcon>
             {`"${status}" - "${species}"`}
           </StatusCharacter>
         </TitleSection>
